@@ -1,4 +1,4 @@
-package Cryptoanalazer;
+package cryptoanalazer;
 
 import java.io.IOException;
 import java.util.Arrays;

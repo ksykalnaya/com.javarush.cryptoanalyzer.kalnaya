@@ -1,4 +1,4 @@
-package Cryptoanalazer;
+package cryptoanalazer;
 
 public class CharNotFindInAlphabetException extends Exception{
     public CharNotFindInAlphabetException(String message){

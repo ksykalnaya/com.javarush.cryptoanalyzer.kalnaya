@@ -1,6 +1,4 @@
-package Cryptoanalazer;
-
-import Cryptoanalazer.Cryptoanalazer;
+package cryptoanalazer;
 
 import java.io.*;
 import java.util.Collections;
