@@ -29,19 +29,16 @@ public class Cryptoanalazer {
                         case (3) -> { BruteForce.doBruteForce(); return; } // Метод подбора
                         default -> System.out.println("Режим работы не найден.Попробуйте еще раз");
                     }
-                } else if (scanner.nextLine().toLowerCase().equals("exit")) {
+                } else if (scanner.nextLine().equalsIgnoreCase("exit")) {
                     break;
                 } else {
                     System.out.println("Введите число");
                 }
 
             }
-        }catch(CharNotFindInAlphabetException e){
-            System.out.println("Что-то пошло не так : ");
-            e.printStackTrace();
-        }catch (IOException e){
+        }catch(CharNotFindInAlphabetException | IOException e){
             System.out.println("Что-то пошло не так : " + e);
+            //e.printStackTrace();
         }
-
     }
 }

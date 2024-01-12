@@ -7,62 +7,70 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class BruteForce {
+    private static Scanner scanner = new Scanner(System.in);
     public static void doBruteForce() throws IOException,CharNotFindInAlphabetException {
-        Scanner scanner = new Scanner(System.in);
+
 
         String source = fillFilePath(scanner,"Введите путь к исходному файлу",true,false);
         String target = fillFilePath(scanner,"Введите путь к директории, куда сохранить",false,true);
         Collections.reverse(Cryptoanalazer.ALPHABET);
 
-        for (int key = 0; key < Cryptoanalazer.ALPHABET.size(); key++) {
+        //Создание файла с номером расшифровки
+        Path targetPath = Path.of(target).resolve(Path.of(source).getFileName() + "_result");
+        if(Files.exists(targetPath)){
+            Files.delete(targetPath);
+        }
+        Files.createFile(targetPath);
 
-            //Создание файла с номером расшифровки
-            Path targetPath = Path.of(target).resolve(Path.of(source).getFileName() + "_result_" + key);
-            if(Files.exists(targetPath)){
-                Files.delete(targetPath);
-            }
-            Files.createFile(targetPath);
+        for (int key = 0; key < Cryptoanalazer.ALPHABET.size(); key++) {
+            System.out.println("Расшифровка №" + key);
 
             try(FileReader reader = new FileReader(source);
                 FileWriter writer = new FileWriter(targetPath.toString())){
 
                 char[] buffer = new char[65536];
-                boolean upperCaseFlg = false;
+                boolean rightDecryption = false;
                 while(reader.ready()){
                     int real = reader.read(buffer);
-                    for (int i = 0; i < real; i++) {
-                        char sign = buffer[i];
-                        upperCaseFlg = Character.isUpperCase(sign) ? true : false;
-                        int index = Cryptoanalazer.ALPHABET.indexOf(Character.toLowerCase(sign));
-                        if (index >= 0) {
-                            index = (index + key) % Cryptoanalazer.ALPHABET.size();
-                            sign = Cryptoanalazer.ALPHABET.get(index);
-                            buffer[i] = upperCaseFlg == true ? Character.toUpperCase(sign) : sign;
-                        } else {
-                            if (sign != '\n') {
-                                throw new CharNotFindInAlphabetException("Символ " + sign + " не найден! В файле " + source);
-                            }
-                        }
-                    }
-                    writer.write(buffer,0,real);
+                    Encryption.changeSignPosition(buffer,key,real);
+
+                    //Проверка расшифровки, если не подходит - идем к след варианту
+                    rightDecryption = checkDecryption(buffer,real,rightDecryption);
+                    if(rightDecryption)
+                        writer.write(buffer,0,real);
+                    else break;
                 }
+                if(rightDecryption){ break; }
             }
         }
         System.out.println("Операция прошла успешно");
     }
 
-    private static String fillFilePath(Scanner scanner, String message, boolean sourcePath, boolean targetPath){
+    private static boolean checkDecryption(char[] array,int size,boolean checkedBefore) throws IOException{
+        if(checkedBefore){ return true; }
+
+        try(BufferedReader bufferedReader = new BufferedReader(new CharArrayReader(array,0,size))){
+            System.out.println(bufferedReader.readLine());
+            System.out.println("Расшифровка верна? yes/no");
+            String answer = scanner.nextLine();
+            if (answer.equalsIgnoreCase("yes")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static String fillFilePath(Scanner scanner, String message, boolean isFile, boolean isDirectory){
         System.out.println(message);
         String pathString = "";
-        Path path = null;
 
         while(true){
             if(scanner.hasNextLine()){
                 pathString = scanner.nextLine();
-                path = Path.of(pathString);
+                Path path = Path.of(pathString);
                 if (pathString.equals("")) {
                     System.out.println("Ничего не введено. " + message);
-                } else if (!Files.exists(path) || (!Files.isRegularFile(path) && sourcePath) || (!Files.isDirectory(path) && targetPath)) {
+                } else if (!Files.exists(path) || (!Files.isRegularFile(path) && isFile) || (!Files.isDirectory(path) && isDirectory)) {
                     System.out.println("Путь не найден. " + message);
                 } else {
                     break;
@@ -71,7 +79,6 @@ public class BruteForce {
                 scanner.next();
                 System.out.println(message);
             }
-
         }
         return pathString;
     }

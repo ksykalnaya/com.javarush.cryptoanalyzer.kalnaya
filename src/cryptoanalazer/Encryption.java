@@ -25,41 +25,43 @@ public class Encryption {
             FileWriter writer = new FileWriter(targetPath.toString())){
 
             char[] buffer = new char[65536];
-            boolean upperCaseFlg = false;
             while(reader.ready()){
                 int real = reader.read(buffer);
-                for (int i = 0; i < real; i++) {
-                    char sign = buffer[i];
-                    upperCaseFlg = Character.isUpperCase(sign) ? true : false;
-                    int index = Cryptoanalazer.ALPHABET.indexOf(Character.toLowerCase(sign));
-                    if(index >= 0){
-                        index = (index + key) % Cryptoanalazer.ALPHABET.size();
-                        sign = Cryptoanalazer.ALPHABET.get(index);
-                        buffer[i] = upperCaseFlg == true ? Character.toUpperCase(sign) : sign;
-                    }else{
-                        if(sign != '\n'){
-                            throw new CharNotFindInAlphabetException("Символ " + sign + " не найден! В файле " + source);
-                        }
-                    }
-                }
+                changeSignPosition(buffer,key,real);
                 writer.write(buffer,0,real);
             }
         }
         System.out.println("Операция прошла успешно");
     }
 
-    private static String fillFilePath(Scanner scanner,String message, boolean sourcePath,boolean targetPath){
+    public static void changeSignPosition(char[] array, int shift,int size) throws CharNotFindInAlphabetException{
+        for (int i = 0; i < size; i++) {
+            char sign = array[i];
+            boolean upperCaseFlg = Character.isUpperCase(sign);
+            int index = Cryptoanalazer.ALPHABET.indexOf(Character.toLowerCase(sign));
+            if(index >= 0){
+                index = (index + shift) % Cryptoanalazer.ALPHABET.size();
+                sign = Cryptoanalazer.ALPHABET.get(index);
+                array[i] = upperCaseFlg ? Character.toUpperCase(sign) : sign;
+            }else{
+                if(sign != '\n'){
+                    throw new CharNotFindInAlphabetException("Символ " + sign + " не найден!");
+                }
+            }
+        }
+    }
+
+    private static String fillFilePath(Scanner scanner,String message, boolean isFile,boolean isDirectory){
         System.out.println(message);
         String pathString = "";
-        Path path = null;
 
         while(true){
             if(scanner.hasNextLine()){
                 pathString = scanner.nextLine();
-                path = Path.of(pathString);
+                Path path = Path.of(pathString);
                 if (pathString.equals("")) {
                     System.out.println("Ничего не введено. " + message);
-                } else if (!Files.exists(path) || (!Files.isRegularFile(path) && sourcePath) || (!Files.isDirectory(path) && targetPath)) {
+                } else if (!Files.exists(path) || (!Files.isRegularFile(path) && isFile) || (!Files.isDirectory(path) && isDirectory)) {
                     System.out.println("Путь не найден. " + message);
                 } else {
                     break;
@@ -95,30 +97,4 @@ public class Encryption {
         }
         return key;
     }
-
-    /*
-    private static String fillTargetFileDirectory(Scanner scanner,String message){
-        System.out.println(message);
-        String dirString = "";
-        Path path = null;
-
-        while(true){
-            if(scanner.hasNextLine()){
-                dirString = scanner.nextLine();
-                path = Path.of(dirString);
-                if (dirString.equals("")) {
-                    System.out.println("Ничего не введено. Введите путь к директории");
-                } else if (!Files.exists(path) || !Files.isDirectory(path)) {
-                    System.out.println("Директория не найдена. Введите путь к директории");
-                } else {
-                    break;
-                }
-            }else{
-                scanner.next();
-                System.out.println("Введите путь к директории");
-            }
-
-        }
-        return dirString;
-    } */
 }
