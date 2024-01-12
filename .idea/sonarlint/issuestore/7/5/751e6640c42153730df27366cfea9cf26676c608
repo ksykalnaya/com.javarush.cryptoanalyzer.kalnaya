@@ -1,0 +1,34 @@
+
+z	java:S135k"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8Ä”ĞÏ1
+7
+java:S1220""Move this file to a named package.8Å”ĞÏ1
+W
+java:S1118":Add a private constructor to hide the implicit public one.( ´Â8î”ĞÏ1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¼Ô¶ƒ8î”ĞÏ1
+E
+java:S1125$"(Remove the unnecessary boolean literals.(²Úõñ8ÓÿäÏ1
+I
+java:S1125)"'Remove the unnecessary boolean literal.(£ó½Œøÿÿÿÿ8ÓÿäÏ1
+L	java:S1063"+Replace this use of System.out by a logger.(¹ôÂ¦ûÿÿÿÿ8ÓÿäÏ1
+L	java:S1067"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8ÔÿäÏ1
+G	java:S106@"+Replace this use of System.out by a logger.(—Øº×8ÔÿäÏ1
+G	java:S106B"+Replace this use of System.out by a logger.(™°8ÔÿäÏ1
+G	java:S106H"+Replace this use of System.out by a logger.( “×Ú8ÔÿäÏ1
+L	java:S106P"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8ÔÿäÏ1
+G	java:S106Y"+Replace this use of System.out by a logger.(«Ä…¾8ÕÿäÏ1
+L	java:S106["+Replace this use of System.out by a logger.(ÀÛ£üÿÿÿÿ8ÕÿäÏ1
+G	java:S106a"+Replace this use of System.out by a logger.(òÇœô8ÕÿäÏ1
+L	java:S106i"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8ÕÿäÏ1
+G	java:S106o"+Replace this use of System.out by a logger.(ıø³8ÕÿäÏ1
+G	java:S106y"+Replace this use of System.out by a logger.(È¦¦¥8ÖÿäÏ1
+B
+java:S1128"%Remove this unused import 'java.awt'.(ï´µ©8ó”ĞÏ1
+F
+java:S1128")Remove this unused import 'java.net.URI'.(Ö¦¨°8ô”ĞÏ1
+M
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8ô”ĞÏ1
+O
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8ô”ĞÏ1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ô”ĞÏ1

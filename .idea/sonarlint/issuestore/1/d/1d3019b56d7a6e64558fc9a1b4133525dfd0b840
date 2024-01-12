@@ -1,0 +1,24 @@
+
+z	java:S135k"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8¢ÓğøÎ1
+7
+java:S1220""Move this file to a named package.8£ÓğøÎ1
+W
+java:S1118":Add a private constructor to hide the implicit public one.( ´Â8š–ŞäÏ1
+o
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¼Ô¶ƒ8š–ŞäÏ1
+E
+java:S1125$"(Remove the unnecessary boolean literals.(²Úõñ8–ŞäÏ1
+I
+java:S1125)"'Remove the unnecessary boolean literal.(£ó½Œøÿÿÿÿ8–ŞäÏ1
+L	java:S1063"+Replace this use of System.out by a logger.(¹ôÂ¦ûÿÿÿÿ8¾ÓğøÎ1
+L	java:S1067"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8¾ÓğøÎ1
+G	java:S106@"+Replace this use of System.out by a logger.(—Øº×8¾ÓğøÎ1
+G	java:S106B"+Replace this use of System.out by a logger.(™°8Ÿ–ŞäÏ1
+G	java:S106H"+Replace this use of System.out by a logger.( “×Ú8Ÿ–ŞäÏ1
+L	java:S106P"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8 –ŞäÏ1
+G	java:S106Y"+Replace this use of System.out by a logger.(«Ä…¾8 –ŞäÏ1
+L	java:S106["+Replace this use of System.out by a logger.(ÀÛ£üÿÿÿÿ8 –ŞäÏ1
+G	java:S106a"+Replace this use of System.out by a logger.(òÇœô8 –ŞäÏ1
+L	java:S106i"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8 –ŞäÏ1
+G	java:S106o"+Replace this use of System.out by a logger.(ıø³8¡–ŞäÏ1
+G	java:S106y"+Replace this use of System.out by a logger.(È¦¦¥8¡–ŞäÏ1

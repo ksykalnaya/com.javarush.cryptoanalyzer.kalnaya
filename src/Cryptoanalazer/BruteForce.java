@@ -1,9 +1,6 @@
-import java.io.FileReader;
-import java.io.FileWriter;
+package Cryptoanalazer;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Scanner;
 
 public class BruteForce {
     public static void doBruteForce() throws IOException {

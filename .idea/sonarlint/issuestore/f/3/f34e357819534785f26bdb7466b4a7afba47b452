@@ -1,0 +1,16 @@
+
+7
+java:S1220""Move this file to a named package.8›ÎàÎÏ1
+:
+java:S2386"Make this member "protected".(¹²§Ì8¢ÎàÎÏ1
+G	java:S106"+Replace this use of System.out by a logger.(á£êÒ8¤ÎàÎÏ1
+G	java:S106"+Replace this use of System.out by a logger.(›ŸÑ8¤ÎàÎÏ1
+L	java:S106"+Replace this use of System.out by a logger.(‘ï¼şÿÿÿÿ8¤ÎàÎÏ1
+G	java:S106"+Replace this use of System.out by a logger.(¶æ¦ü8¤ÎàÎÏ1
+G	java:S106"+Replace this use of System.out by a logger.(†×şø8¤ÎàÎÏ1
+L	java:S106"+Replace this use of System.out by a logger.(©ï˜ôıÿÿÿÿ8§ÎàÎÏ1
+€
+java:S1157"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(áÊÊ÷8§ÎàÎÏ1
+F	java:S106!"+Replace this use of System.out by a logger.(Ù—ı(8§ÎàÎÏ1
+F	java:S106&"+Replace this use of System.out by a logger.(Àª±U8‘áÎÏ1
+G	java:S106)"+Replace this use of System.out by a logger.(ä†‡º8„ŒçÎÏ1
